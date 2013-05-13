@@ -9,6 +9,7 @@ ro.telephony.ril_class=HuaweiQualcommRIL
 ro.telephony.ril.v3=skippinpukcount,qcomdsds
 ro.cdma.home.operator.numeric=46003
 ro.telephony.default_network=4
+ro.cdma.factory=china
 ro.config.cdma_subscription=0
 ril.subscription.types=NV,RUIM
 DEVICE_PROVISIONED=1
