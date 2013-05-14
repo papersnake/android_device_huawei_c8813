@@ -1,7 +1,7 @@
 #
 # system.prop for c8813
 #
-ro.vendor.extension_library=/system/lib/libqc-opt.so
+#ro.vendor.extension_library=/system/lib/libqc-opt.so
 rild.libpath=/system/lib/libril-qc-1.so
 rild.libargs=-d /dev/smd0
 #ro.telephony.ril_class=QualcommSharedRIL
@@ -27,6 +27,7 @@ ro.additionalmounts=/storage/sdcard1
 ro.vold.switchablepair=/storage/sdcard1,/storage/sdcard0
 ro.emmc.sdcard.partition=19
 persist.sys.usb.config=mass_storage,adb
+ro.vold.umsdirtyratio=50
 
 persist.sys.use_dithering=2
 com.qc.hardware=true
@@ -43,6 +44,7 @@ keyguard.no_require_sim=true
 # system props for the data modules
 #
 ro.use_data_netmgrd=true
+ro.config.hw_omacp=1
 persist.data.ds_fmc_app.mode=0
 
 #
@@ -99,9 +101,14 @@ ro.fm.mulinst.recording.support=false
 ro.config.keypasstouser=true
 #System property for msm 
 #
-#G330 4.0 WVGA lcd
+
+
+# MSM8x25
 debug.composition.8x25.type=mdp
 ro.hw_plat=8x25
+
+dev.pm.dyn_sample_period=700000
+dev.pm.dyn_samplingrate=1 
 
 # libandroid_runtime
 ro.config.hw_pic_limit_size=50
@@ -120,7 +127,9 @@ ro.config.is_cdma_phone=true
 ro.config.sel_df_c_before_tp=true
 ro.config.notRefreshInPBM=true
 
-debug.composition.type=dyn
+#debug.composition.type=dyn
+debug.composition.type=mdp
+debug.enabletr=true
 
 # mm-pp-daemon
 hw.cabl.level=2
