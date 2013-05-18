@@ -7,10 +7,10 @@ on early-boot
     start gpu_dcvsd
 on init
     mkdir /cust
-    mkdir /storage 0775 system sdcard_r
-    mkdir /storage/sdcard0 0000 system system
-    mkdir /storage/sdcard1 0000 system system
-    mkdir /internal_sd 0000 system system
+    mkdir /storage 0775 system system
+    mkdir /storage/sdcard0 0775 system system
+    mkdir /storage/sdcard1 0775 system system
+    mkdir /internal_sd 0775 system system
     export EXTERNAL_STORAGE /storage/sdcard0
     export INTERNAL_STORAGE /storage/sdcard1
 
