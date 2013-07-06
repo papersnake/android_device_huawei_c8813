@@ -73,17 +73,15 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/huawei/c8813/ramdisk/init.huawei.rc:root/init.huawei.rc \
     device/huawei/c8813/ramdisk/ueventd.huawei.rc:root/ueventd.huawei.rc \
-    device/huawei/c8813/ramdisk/init.qcom.sh:root/init.qcom.sh \
     device/huawei/c8813/ramdisk/init.huawei.usb.rc:root/init.huawei.usb.rc \
-    device/huawei/c8813/ramdisk/init.qcom.class_core.sh:root/init.qcom.class_core.sh \
-    device/huawei/c8813/ramdisk/init.qcom.class_main.sh:root/init.qcom.class_main.sh \
     device/huawei/c8813/ramdisk/init.qcom.ril.path.sh:root/init.qcom.ril.path.sh
 
 PRODUCT_COPY_FILES += \
     device/huawei/c8813/ramdisk/e2fsck_s:root/sbin/e2fsck_s \
     device/huawei/c8813/ramdisk/resize2fs_s:root/sbin/resize2fs_s \
     device/huawei/c8813/ramdisk/resize2fs_wrapper:root/sbin/resize2fs_wrapper \
-    device/huawei/c8813/ramdisk/tp/1294018.img:root/tp/1294018.img
+    device/huawei/c8813/ramdisk/tp/1294018.img:root/tp/1294018.img \
+    device/huawei/c8813/ramdisk/tp/1191601.img:root/tp/1191601.img
 
 PRODUCT_COPY_FILES += \
     device/huawei/c8813/prebuilt/system/wifi/ath6k/athtcmd_ram.bin:system/etc/firmware/ath6k/athtcmd_ram.bin \

@@ -29,6 +29,8 @@
 #
 # set rild-libpath using modem build_id
 #
+echo "ondemand" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+echo "ondemand" > /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
 PATH=/sbin:/system/sbin:/system/bin:/system/xbin
 export PATH
 buildid=`cat /sys/devices/system/soc/soc0/build_id`

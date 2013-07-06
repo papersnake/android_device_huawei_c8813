@@ -5,6 +5,7 @@ on early-boot
     start rendering-set
     start qcamerasvr
     start gpu_dcvsd
+
 on init
     mkdir /cust
     mkdir /storage 0775 system system
@@ -204,6 +205,7 @@ on post-fs
     chmod 0640 /data/dontpanic/modem_panic
     export_rc /persist/init.cne.rc
     exec /system/bin/sh /system/etc/init.qcom.thermald_conf.sh
+
 service ril-qmi /system/bin/sh /init.qcom.ril.path.sh
     class main
     user root
@@ -315,8 +317,12 @@ on post-fs-data
     # Create /data/time folder for time-services
     mkdir /data/time/ 0700 system system
 
-
     setprop vold.post_fs_data_done 1
+
+	start qmuxd
+    start netmgrd
+    start ril-qmi
+    start wlan_detect
 
 on property:init.svc.wpa_supplicant=stopped
     stop dhcpcd
@@ -327,16 +333,6 @@ on property:bluetooth.isEnabled=true
 
 on property:bluetooth.isEnabled=false
     start amp_unload
-    
-service qcom-c_core-sh /system/bin/sh /init.qcom.class_core.sh
-    class core
-    user root
-    oneshot
-
-service qcom-c_main-sh /system/bin/sh /init.qcom.class_main.sh
-    class main
-    user root
-    oneshot
   
 on property:vold.decrypt=trigger_restart_framework
     start qcom-c_main-sh
@@ -622,8 +618,8 @@ service rendering-set /system/bin/sh /system/etc/init.qcom.rendering.sh
 #start camera server as daemon
 service qcamerasvr /system/bin/mm-qcamera-daemon
         class late_start
-        user camera
-        group camera system inet audio
+        user media
+        group system camera inet audio
 
 service thermald /system/bin/thermald
    class late_start
